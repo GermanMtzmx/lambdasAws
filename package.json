@@ -1,0 +1,37 @@
+{
+  "name": "lambdasaws",
+  "version": "0.0.1",
+  "description": "Example for aws lambdas article",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GermanMtzmx/lambdasAws.git"
+  },
+  "keywords": [
+    "aws",
+    "lambdas",
+    "medium"
+  ],
+  "author": "German Martinez Solis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GermanMtzmx/lambdasAws/issues"
+  },
+  "homepage": "https://github.com/GermanMtzmx/lambdasAws#readme",
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.1"
+  }
+}
