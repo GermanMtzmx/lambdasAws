@@ -7,7 +7,6 @@ const comparePassword = (reqPassword, dbPassword) => bcrypt.compareSync(reqPassw
 
 const createJWT = ({ _id }) => jwt.sign({_id: _id}, process.env.SECRET_JWT, {expiresIn: 86400 });
 
-
 const response = (statusCode, body) => {
     return {
         "statusCode": statusCode,
