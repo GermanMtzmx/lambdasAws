@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const morgan = require('morgan')
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -8,8 +8,10 @@ const lambdas = require('./index');
 const app = express();
 
 const PORT = 9001;
+
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(morgan('combined'));
 
 const server = app.listen(PORT, function () {
     const host = server.address().address;
