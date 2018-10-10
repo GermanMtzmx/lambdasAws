@@ -31,3 +31,8 @@ app.post('/api/v1/signin', async (req, res) => {
     const lambdaSignin = await lambdas.signin({ body: JSON.stringify(req.body) });
     res.status(lambdaSignin.statusCode).send(JSON.parse(lambdaSignin.body));
 });
+
+app.get('/api/v1/me', async(req, res) => {
+    const lambdaProfile = await lambdas.getProfile({body: JSON.stringify(req.body), headers: req.headers});
+    res.status(lambdaProfile.statusCode).send(JSON.parse(lambdaProfile.body));
+});
