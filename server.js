@@ -3,7 +3,10 @@ const morgan = require('morgan')
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const lambdas = require('./index');
+// const lambdas = require('./index');
+const signin = require('./signin.js');
+const signup = require('./signup.js');
+const getprofile = require('./getprofile.js');
 
 const app = express();
 
@@ -25,16 +28,16 @@ app.get('/', (req, res) => res.status(200).send({message: 'aws lambda dev api'})
 
 
 app.post('/api/v1/signup', async (req, res) => {
-    const lambdaSignup = await lambdas.signup({ body: JSON.stringify(req.body) });
+    const lambdaSignup = await signup.handler({ body: JSON.stringify(req.body) });
     res.status(lambdaSignup.statusCode).send(JSON.parse(lambdaSignup.body));
 });
 
 app.post('/api/v1/signin', async (req, res) => {
-    const lambdaSignin = await lambdas.signin({ body: JSON.stringify(req.body) });
+    const lambdaSignin = await signin.handler({ body: JSON.stringify(req.body) });
     res.status(lambdaSignin.statusCode).send(JSON.parse(lambdaSignin.body));
 });
 
 app.get('/api/v1/me', async(req, res) => {
-    const lambdaProfile = await lambdas.getProfile({body: JSON.stringify(req.body), headers: req.headers});
+    const lambdaProfile = await getprofile.handler({body: JSON.stringify(req.body), headers: req.headers});
     res.status(lambdaProfile.statusCode).send(JSON.parse(lambdaProfile.body));
 });
